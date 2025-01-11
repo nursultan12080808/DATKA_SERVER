@@ -98,3 +98,10 @@ class ResolutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Resolution
         fields = "__all__"
+
+
+class GlavaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Glava
+        fields = "__all__"

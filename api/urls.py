@@ -10,6 +10,7 @@ router.register('earths', EarthViewSet)
 router.register('agriculturals', AgriculturalViewSet)
 router.register('statelands', StateLandViewSet)
 router.register('resolutions', ResolutionViewSet)
+router.register('glava', GlavaViewSet)
 
 
 urlpatterns = [

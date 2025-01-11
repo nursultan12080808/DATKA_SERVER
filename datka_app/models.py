@@ -176,7 +176,6 @@ class StateLand(models.Model):
 
 
 
-from django.db import models
 
 class Resolution(models.Model):
     resolution_number = models.CharField(max_length=50, verbose_name="Номер постановления")
@@ -204,3 +203,18 @@ class Resolution(models.Model):
         verbose_name = "Постановление айыл окмота"
         verbose_name_plural = "Постановления айыл окмота"
         ordering = ['-resolution_date']  # Сортировка по дате постановления, от нового к старому
+
+
+
+class Glava(models.Model):
+
+    class Meta: 
+        verbose_name = "Глава"
+        verbose_name_plural = "Глава"
+    
+    image = models.ImageField(verbose_name="Фото главы", upload_to="admin_images")
+    surname = models.CharField(verbose_name="Фамилия", max_length=20)
+    name = models.CharField(verbose_name="Имя", max_length=20)
+    middle_name = models.CharField(verbose_name="Отчество", max_length=20)
+    job = models.CharField(verbose_name="Должность", max_length=100)
+    phone = models.CharField(verbose_name="Номер",max_length=13)
