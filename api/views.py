@@ -80,3 +80,11 @@ class GlavaViewSet(ModelViewSet):
     serializer_class = GlavaSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class AdminsViewSet(ModelViewSet):
+    queryset = Admins.objects.all()
+    lookup_field = "id"
+    serializer_class = AdminSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    permission_classes = (IsAuthenticatedOrReadOnly,)

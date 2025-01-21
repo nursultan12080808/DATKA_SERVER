@@ -11,7 +11,7 @@ class News(models.Model):
         ('archived', 'Архивировано'),
     ]
 
-    title = models.CharField(max_length=200, verbose_name='Заголовок')  # Заголовок новости
+    title = models.CharField(max_length=150, verbose_name='Заголовок')  # Заголовок новости
     content = models.TextField(verbose_name='Текст новости')  # Текст новости
     published_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')  # Дата публикации
     category = models.ForeignKey("datka_app.Category", on_delete=models.CASCADE, related_name="news", verbose_name="Категория")  # Категория новости
@@ -66,8 +66,6 @@ class Adminstration(models.Model):
         verbose_name = "Администрация"
         verbose_name_plural = "Администрация"
     
-    glava = models.BooleanField(verbose_name="Руководитель?", default=False)
-    image = models.ImageField(verbose_name="Фото персонала", upload_to="admin_images")
     surname = models.CharField(verbose_name="Фамилия", max_length=20)
     name = models.CharField(verbose_name="Имя", max_length=20)
     middle_name = models.CharField(verbose_name="Отчество", max_length=20)
@@ -213,6 +211,20 @@ class Glava(models.Model):
         verbose_name_plural = "Глава"
     
     image = models.ImageField(verbose_name="Фото главы", upload_to="admin_images")
+    surname = models.CharField(verbose_name="Фамилия", max_length=20)
+    name = models.CharField(verbose_name="Имя", max_length=20)
+    middle_name = models.CharField(verbose_name="Отчество", max_length=20)
+    job = models.CharField(verbose_name="Должность", max_length=100)
+    phone = models.CharField(verbose_name="Номер",max_length=13)
+
+
+class Admins(models.Model):
+    
+    class Meta:
+        verbose_name = "Руководство"
+        verbose_name_plural = "Руководство"
+
+    image = models.ImageField(verbose_name="Фото руководства", upload_to="admin_images")
     surname = models.CharField(verbose_name="Фамилия", max_length=20)
     name = models.CharField(verbose_name="Имя", max_length=20)
     middle_name = models.CharField(verbose_name="Отчество", max_length=20)

@@ -105,3 +105,10 @@ class GlavaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Glava
         fields = "__all__"
+
+
+class AdminSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Glava
+        fields = "__all__"
