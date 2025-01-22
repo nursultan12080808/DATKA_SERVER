@@ -59,6 +59,7 @@ class AdminstrationAdmin(admin.ModelAdmin):
         return '-'
 
 admin.site.register(Jobs)
+admin.site.register(Admins)
 admin.site.register(Glava)
 admin.site.register(Agricultural)
 admin.site.register(StateLand)
