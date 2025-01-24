@@ -60,6 +60,7 @@ class AdminstrationAdmin(admin.ModelAdmin):
 
 admin.site.register(Jobs)
 admin.site.register(Admins)
+admin.site.register(Earth)
 admin.site.register(Glava)
 admin.site.register(Agricultural)
 admin.site.register(StateLand)
