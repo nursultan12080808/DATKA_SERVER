@@ -5,14 +5,14 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from datka_app.models import *
 from .serializers import *
-from .filters import NewsFilter
+# from .filters import NewsFilter
 
 
 class NewsViewSet(ModelViewSet):
     queryset = News.objects.all()
     lookup_field = "id"
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_class = NewsFilter
+    # filterset_class = NewsFilter
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get_serializer_class(self):

@@ -20,26 +20,11 @@ class DetailUserSerializer(serializers.ModelSerializer):
         exclude = ('is_staff', 'is_active', 'password', 'is_superuser', 'groups', 'user_permissions')
 
 
-class CategorySerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Category
-        fields = '__all__'
-
-
-class TagsSerializer(serializers.ModelSerializer):
-
-    class Meta: 
-        model = Tag
-        fields = "__all__"
-
-
 class DetailNewsSerializer(serializers.ModelSerializer):
 
     images = ImageSerializer(many = True)
     author = DetailUserSerializer()
-    tags = TagsSerializer()
-    category = CategorySerializer()
+    
 
     class Meta:
         model = News
@@ -50,8 +35,6 @@ class ListNewsSerializer(serializers.ModelSerializer):
 
     images = ImageSerializer(many = True)
     author = DetailUserSerializer()
-    tags = TagsSerializer()
-    category = CategorySerializer()
 
     class Meta:
         model = News
@@ -110,5 +93,5 @@ class GlavaSerializer(serializers.ModelSerializer):
 class AdminSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Glava
+        model = Admins
         fields = "__all__"
