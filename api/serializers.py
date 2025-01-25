@@ -23,7 +23,6 @@ class DetailUserSerializer(serializers.ModelSerializer):
 class DetailNewsSerializer(serializers.ModelSerializer):
 
     images = ImageSerializer(many = True)
-    author = DetailUserSerializer()
     
 
     class Meta:
@@ -34,7 +33,6 @@ class DetailNewsSerializer(serializers.ModelSerializer):
 class ListNewsSerializer(serializers.ModelSerializer):
 
     images = ImageSerializer(many = True)
-    author = DetailUserSerializer()
 
     class Meta:
         model = News
