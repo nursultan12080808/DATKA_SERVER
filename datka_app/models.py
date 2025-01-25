@@ -151,9 +151,7 @@ class StateLand(models.Model):
         max_digits=10, decimal_places=2, 
         null=True, blank=True, 
         verbose_name="Цена аренды в год (сом)")
-    cadastral_number = models.CharField(max_length=50, blank=True, verbose_name="Кадастровый номер")
     date_added = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
-    access_type_ru = models.CharField(max_length=100, blank=True, verbose_name="Тип доступа")
 
     def __str__(self):
         return f"{self.name_ru}"
