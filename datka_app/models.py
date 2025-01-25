@@ -75,7 +75,7 @@ class Earth(models.Model):
     phone = models.CharField(max_length=13, verbose_name="Номер телефона")
 
     def __str__(self):
-        return self.published_date
+        return self.phone
 
     class Meta:
         verbose_name = "Земельный участок"
