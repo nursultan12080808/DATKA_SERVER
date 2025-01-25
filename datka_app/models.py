@@ -43,6 +43,9 @@ class Adminstration(models.Model):
     job_kg = models.CharField(verbose_name="Должность (кырг)", max_length=100)
     phone = models.CharField(verbose_name="Номер телефона", max_length=13)
 
+    def __str__(self):
+        return self.name_kg
+
     class Meta:
         verbose_name = "Администрация"
         verbose_name_plural = "Администрация"
@@ -70,6 +73,9 @@ class Earth(models.Model):
     requirement_ru = models.TextField(verbose_name="Требования (рус)")
     requirement_kg = models.TextField(verbose_name="Требования (кырг)")
     phone = models.CharField(max_length=13, verbose_name="Номер телефона")
+
+    def __str__(self):
+        return self.published_date
 
     class Meta:
         verbose_name = "Земельный участок"
@@ -150,7 +156,7 @@ class StateLand(models.Model):
     access_type_ru = models.CharField(max_length=100, blank=True, verbose_name="Тип доступа")
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name_ru}"
     
     class Meta:
         verbose_name = "Государственная земля"
@@ -200,7 +206,7 @@ class Glava(models.Model):
     phone = models.CharField(verbose_name="Номер телефона", max_length=13)
 
     def __str__(self):
-        return f"{self.name_ru} {self.surname_ru}"
+        return f"{self.surname} {self.surname}"
 
     class Meta:
         verbose_name = "Глава"
