@@ -151,7 +151,9 @@ class StateLand(models.Model):
         max_digits=10, decimal_places=2, 
         null=True, blank=True, 
         verbose_name="Цена аренды в год (сом)")
+
     date_added = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
+    phone = models.CharField(max_length=13, verbose_name="Номер телефона", blank=True, null=True)
 
     def __str__(self):
         return f"{self.name_ru}"
