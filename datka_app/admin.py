@@ -7,8 +7,8 @@ from .models import *
 
 class NewsAdminForm(forms.ModelForm):
 
-    content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание новости')
-    content_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание новости')
+    content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание новости на русском')
+    content_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание новости на кыргзыском')
 
     class Meta:
         model = News
