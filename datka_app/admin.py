@@ -15,6 +15,92 @@ class NewsAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+
+class JobsAdminForm(forms.ModelForm):
+
+    content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Требования на русском')
+    content_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Требования на кыргзыском')
+
+    class Meta:
+        model = Jobs
+        fields = '__all__'
+
+
+@admin.register(Jobs)
+class JobsAdmin(admin.ModelAdmin):
+    form = JobsAdminForm
+
+
+
+class EarthAdminForm(forms.ModelForm):
+
+    requirement_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на русском')
+    requirement_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на кыргзыском')
+
+    content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на русском')
+    content_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на кыргзыском')
+
+    class Meta:
+        model = Earth
+        fields = '__all__'
+
+
+@admin.register(Earth)
+class EarthAdmin(admin.ModelAdmin):
+    form = EarthAdminForm
+
+
+class AgriculturalAdminForm(forms.ModelForm):
+
+    description_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание на русском')
+    description_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание на кыргзыском')
+
+    class Meta:
+        model = Agricultural
+        fields = '__all__'
+
+
+@admin.register(Agricultural)
+class AgriculturalAdmin(admin.ModelAdmin):
+    form = AgriculturalAdminForm
+
+
+
+
+
+class StateLandAdminForm(forms.ModelForm):
+    
+
+    description_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание на русском')
+    description_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание на кыргзыском')
+
+    class Meta:
+        model = StateLand
+        fields = '__all__'
+
+
+@admin.register(StateLand)
+class StateLandAdmin(admin.ModelAdmin):
+    form = StateLandAdminForm
+
+
+
+class ResolutionAdminForm(forms.ModelForm):
+
+    content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на русском')
+    content_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на кыргзыском')
+
+    class Meta:
+        model = Resolution
+        fields = '__all__'
+
+
+@admin.register(Resolution)
+class ResolutionAdmin(admin.ModelAdmin):
+    form = ResolutionAdminForm
+
+
+
 class NewsImageStackedInline(admin.TabularInline):
 
     model = Images
@@ -45,13 +131,8 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Adminstration)
-admin.site.register(Jobs)
 admin.site.register(Admins)
-admin.site.register(Earth)
 admin.site.register(Glava)
-admin.site.register(Agricultural)
-admin.site.register(StateLand)
-admin.site.register(Resolution)
 
 
 # Register your models here.
