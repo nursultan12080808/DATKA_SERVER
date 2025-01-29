@@ -119,6 +119,6 @@ def contact_form(request):
     )
 
     # Отправляем письмо на Gmail
-    send_mail(email_subject, full_message, email, ["your_email@gmail.com"])
+    send_mail(email_subject, full_message, email, ["oshai4683@gmail.com"])
 
     return Response({"message": "Сообщение отправлено успешно!"})
