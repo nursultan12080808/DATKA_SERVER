@@ -15,5 +15,6 @@ router.register('admins', AdminsViewSet)
 
 
 urlpatterns = [
+    path('contact/', contact_form, name='contact_form'),
     path('', include(router.urls)),
 ]
