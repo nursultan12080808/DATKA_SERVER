@@ -54,10 +54,7 @@ INSTALLED_APPS = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Например, для локального React приложения
-    "https://example.com",    # Добавьте ваш продакшн домен
-]
+CORS_ALLOWED_ORIGINS = ["*"]
 
 MIDDLEWARE = [  
     'corsheaders.middleware.CorsMiddleware',
