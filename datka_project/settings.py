@@ -107,11 +107,14 @@ WSGI_APPLICATION = 'datka_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # Указываем PostgreSQL
+        'NAME': 'call_helper',  # Название вашей базы данных
+        'USER': 'call_helper',  # Имя пользователя PostgreSQL
+        'PASSWORD': 'nur120808',  # Пароль для пользователя
+        'HOST': 'localhost',  # Адрес сервера базы данных
+        'PORT': '5432',  # Порт PostgreSQL (по умолчанию 5432)
     }
 }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
