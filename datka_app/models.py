@@ -167,27 +167,9 @@ class StateLand(models.Model):
 class Resolution(models.Model):
     resolution_number = models.CharField(max_length=50, verbose_name="Номер постановления")
     resolution_date = models.DateField(verbose_name="Дата постановления")
-    title_ru = models.CharField(max_length=255, verbose_name="Заголовок постановления (на русском)")
-    title_kg = models.CharField(max_length=255, verbose_name="Заголовок постановления (на кыргызском)")
-    content_ru = models.TextField(verbose_name="Содержание постановления (на русском)")
-    content_kg = models.TextField(verbose_name="Содержание постановления (на кыргызском)")
-    responsible_person_ru = models.CharField(
-        max_length=255, verbose_name="Ответственное лицо или орган (на русском)", blank=True
-    )
-    execution_status = models.CharField(
-        max_length=50,
-        choices=[
-            ('in_progress', 'В процессе'),
-            ('completed', 'Выполнено'),
-            ('cancelled', 'Отменено'),
-        ],
-        default='in_progress',
-        verbose_name="Статус выполнения"
-    )
     last_updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
     date_added = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
-    notes_ru = models.TextField(blank=True, verbose_name="Примечания (на русском)")
-    notes_kg = models.TextField(blank=True, verbose_name="Примечания (на кыргызском)")
+    
 
     def __str__(self):
         return f"Постановление {self.resolution_number} от {self.resolution_date}"
@@ -196,6 +178,11 @@ class Resolution(models.Model):
         verbose_name = "Постановление айыл окмоту"
         verbose_name_plural = "Постановления айыл окмоту"
         ordering = ['-resolution_date']
+
+
+class File(models.Model):
+    file = models.FileField(verbose_name="Файл для постановления")
+    resolution = models.ForeignKey("Resolution", related_name="files", on_delete=models.CASCADE, verbose_name="Постановление")
 
 
 class Glava(models.Model):

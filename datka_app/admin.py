@@ -85,19 +85,15 @@ class StateLandAdmin(admin.ModelAdmin):
 
 
 
-class ResolutionAdminForm(forms.ModelForm):
+class ResolutionFileStackedInline(admin.TabularInline):
 
-    content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на русском')
-    content_kg = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание земельного участка на кыргзыском')
-
-    class Meta:
-        model = Resolution
-        fields = '__all__'
+    model = File
+    extra = 1
 
 
 @admin.register(Resolution)
 class ResolutionAdmin(admin.ModelAdmin):
-    form = ResolutionAdminForm
+    form = ResolutionFileStackedInline
 
 
 
@@ -105,6 +101,8 @@ class NewsImageStackedInline(admin.TabularInline):
 
     model = Images
     extra = 1
+
+
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
