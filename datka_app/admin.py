@@ -91,7 +91,6 @@ class ResolutionFileStackedInline(admin.TabularInline):
     extra = 1
 
 
-@admin.register(Resolution)
 class ResolutionAdmin(admin.ModelAdmin):
     form = ResolutionFileStackedInline
 
