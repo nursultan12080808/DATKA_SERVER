@@ -66,8 +66,6 @@ class AgriculturalAdmin(admin.ModelAdmin):
 
 
 
-
-
 class StateLandAdminForm(forms.ModelForm):
     
 
@@ -90,7 +88,7 @@ class ResolutionFileStackedInline(admin.TabularInline):
     model = File
     extra = 1
 
-
+@admin.register(Resolution)
 class ResolutionAdmin(admin.ModelAdmin):
     form = ResolutionFileStackedInline
 
