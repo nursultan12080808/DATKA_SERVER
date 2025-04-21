@@ -88,11 +88,11 @@ class ResolutionFileStackedInline(admin.TabularInline):
     model = File
     extra = 1
 
-    
+
 
 @admin.register(Resolution)
 class ResolutionAdmin(admin.ModelAdmin):
-    form = ResolutionFileStackedInline
+    inlines = [ResolutionFileStackedInline]
 
 
 
