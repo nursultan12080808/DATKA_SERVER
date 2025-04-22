@@ -165,6 +165,8 @@ class StateLand(models.Model):
 
 
 class Resolution(models.Model):
+    title_ru = models.CharField(max_length=100, verbose_name="Заголовок русс", null=True)
+    title_kg = models.CharField(max_length=100, verbose_name="Заголовок кырг", null=True)
     resolution_number = models.CharField(max_length=50, verbose_name="Номер постановления")
     resolution_date = models.DateField(verbose_name="Дата постановления")
     last_updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
