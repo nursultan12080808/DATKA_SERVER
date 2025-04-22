@@ -82,7 +82,7 @@ class FileSerializer(serializers.ModelSerializer):
 
 class ResolutionSerializer(serializers.ModelSerializer):
 
-    images = ImageSerializer(many = True)
+    files = FileSerializer(many = True)
 
     class Meta:
         model = Resolution
