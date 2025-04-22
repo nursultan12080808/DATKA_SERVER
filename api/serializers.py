@@ -74,7 +74,15 @@ class StateLandSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = "__all__"
+
+
 class ResolutionSerializer(serializers.ModelSerializer):
+
+    images = ImageSerializer(many = True)
 
     class Meta:
         model = Resolution
